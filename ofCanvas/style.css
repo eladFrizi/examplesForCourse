@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+
+}
+.ofCanvas{
+    position: fixed;
+    width: 33vw;
+    height: 100%;
+    background: blue;
+    transform: translateX(-33vw);
+    transition: transform 0.5s;
+    border-radius: 5px;
+}
+.ofCanvas-open{
+    transform: translateX(0);
+    box-shadow: 5px 1px 8px 0px black;    
+}
+
+main{
+    background: green;
+    transition: margin-left 0.5s;
+    height: 100%;
+}
+
+.main-ofCanvas-open{
+    padding-left: 3vw;
+    margin-left: 31vw;    
+}
+
+.wrapper{
+    max-width: 100%;
+    height: 100vh;
+}
+
+
+/* if the screen is wider then 1000px the offCanvas is open by defualt 
+and the btns are not shown*/
+
+@media (min-width: 1000px){
+
+    .ofCanvas{
+        transform: translateX(0);
+    }
+
+    main{
+        padding-left: 1vw;
+        margin-left: 32vw;    
+        }
+
+    .canvas-btn{
+        display: none;
+    }
+}

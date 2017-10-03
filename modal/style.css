@@ -1,0 +1,67 @@
+
+body {
+    margin: 0;
+}
+
+/*Modal is on visibility hidden so we cant see him*/
+/* opacity 0 is also there for the transition (visibility has no support for transition) 
+We can set visibility only for ordinal/calculable properties.*/
+/*Even that we set the opacity to 0 we still need to use visibility property.
+If we had only opacity 0 the parent will be transperent but still on the top of everything.
+Comment out the visibility hidden and see that you dont have the hover effect on the btn.
+The modal is on the top of him.*/
+.modal{
+    visibility: hidden;
+    opacity: 0;
+    /* Position fixed set the element position realtive to the browser window,
+    the fixed element stay in his place even where the page scroll */
+    position: fixed;    
+    height: 100%;
+    width: 100%;
+    background: rgba(154, 87, 87, 0.86);    
+    /*the opacity change will take 0.3sec*/
+	transition: opacity 0.3s, visibility 0.3s;
+}
+/* this class is added when we open the modal */
+.modal-open{    
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.btn-container{
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+}
+
+button{
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    height: 50px;
+    background: lightblue;
+    border: 5px solid purple;
+    border-radius: 5px;
+    box-shadow: -2px 7px 20px 0px rgba(0, 0, 0, 0.17);
+    transition: background 0.5s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+button:hover{
+    background: rgba(42, 97, 47, 0.8);
+
+}
+
+.btn-close{
+    /* position relative says that the positing changes that we going to do 
+    are going to be relative to the element origin place */
+    position: relative;
+    /* nice way to center element verticly and horizonilly */
+    /* https://davidwalsh.name/css-vertical-center */
+    top: 50%;
+    transform: translateY(-50%);
+    /* A very common way to horizontal center element is "margin-left: auto; margin-right: auto"
+    this is work only for block level elements(display:block or flex;)*/
+    display: block;
+    margin: 0 auto; 
+}
